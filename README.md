@@ -1,4 +1,4 @@
-#KrakenFlex Tech Test from Georgia Gage
+# KrakenFlex Tech Test from Georgia Gage
 
-##Tech
+## Tech
 This application uses TypeScript and Node JS.
