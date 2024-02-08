@@ -1,6 +1,6 @@
-import { outages, filteredOutages } from "../dummy-data/outages";
-import { siteInfo, deviceIds } from "../dummy-data/siteInfo";
-import { extractDeviceIds, filterOutages } from "./helpers";
+import { outages, filteredOutages } from "../test-data/outages";
+import { siteInfo, deviceIds } from "../test-data/siteInfo";
+import { extractDeviceIds, filterOutages } from "./dataProcessing";
 
 describe("getDeviceIdList", () => {
   it("should return a list of IDs from a list of SiteInfo", () => {
