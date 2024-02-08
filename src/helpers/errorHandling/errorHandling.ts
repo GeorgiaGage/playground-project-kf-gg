@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 
 export function axiosRetryCondition(error: AxiosError): boolean {
   // Retry on timeout - this is a questionable addition
-  if (error.code === 'ECONNABORTED') return true;
+  if (error.code === "ECONNABORTED") return true;
   switch (error.response?.status) {
     case 500:
     case 501:
@@ -20,6 +20,9 @@ export function axiosRetryCondition(error: AxiosError): boolean {
     case 404:
       console.log("Received status: 404 - Not found :/");
       return false;
+    case 429:
+      console.log("Received status: 429 - API Key limit exceeded");
+      return false;
     default:
       return false;
   }
@@ -28,7 +31,7 @@ export function axiosRetryCondition(error: AxiosError): boolean {
 export function handleRequestErrors(error: any) {
   // Catch other axios errors not caught by retry
   if (axios.isAxiosError(error)) {
-    console.log(error.message);
+    console.log(error.response?.data);
   } else {
     const err = new Error(error);
     console.log(err.message);

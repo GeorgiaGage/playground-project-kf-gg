@@ -24,8 +24,8 @@ describe("getRecentOutages", () => {
     expect(result).toEqual([]);
   });
 
-  it("should return an empty list if none of the outage dates are before the cutoff", () => {
-    const earlyCutOffTime = new Date("2010-07-11T00:00:00.000Z");
+  it("should return an empty list if none of the outage dates are after the cutoff", () => {
+    const earlyCutOffTime = new Date("2026-07-11T00:00:00.000Z");
     const result = buildSiteOutages(siteInfo, outages, earlyCutOffTime);
     expect(result).toEqual([]);
   });
