@@ -3,14 +3,12 @@ import getOutages from "./src/requests/getOutages";
 import getSiteInfo from "./src/requests/getSiteInfo";
 
 async function main(): Promise<void> {
-  console.log("hello world");
   try {
     const siteId = "norwich-pear-tree";
     const [outages, siteInfo] = await Promise.all([
       getOutages(),
       getSiteInfo(siteId),
     ]);
-
 
     //Extract device IDs
     const deviceIds = extractDeviceIds(siteInfo);
@@ -28,7 +26,6 @@ async function main(): Promise<void> {
     //Make it resillient
     //Conolse interactive?
   } catch (error) {
-    console.log("Error: ", {error});
     console.log("Something went badly wrong, please try again later");
   }
 }
