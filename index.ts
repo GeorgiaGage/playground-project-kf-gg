@@ -1,8 +1,9 @@
-import getOutages from "./src/getOutages";
+import getOutages from "./src/requests/getOutages";
+import getSiteInfo from "./src/requests/getSiteInfo";
 
 async function main(): Promise<void> {
-    console.log("hello world");
-    getOutages();
+  console.log("hello world");
+  getSiteInfo();
 }
 
 main();
