@@ -19,7 +19,7 @@ async function main(): Promise<void> {
     const cutOffTime = new Date("2022-01-01T00:00:00.000Z");
     const siteOutages = buildSiteOutages(siteInfo, outages, cutOffTime);
 
-    console.log("result: ", siteOutages);
+    console.log("result: ", JSON.stringify(siteOutages));
     postSiteOutages(siteOutages, siteId);
 
     //Extra stuff:

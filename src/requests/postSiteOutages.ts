@@ -2,6 +2,7 @@ import { handleRequestErrors } from "../helpers/errorHandling/errorHandling";
 import SiteOutage from "../types/SiteOutage";
 import client from "./client";
 
+// This endpoint is broken I believe
 async function postSiteOutages(
   siteOutages: SiteOutage[],
   siteId: string

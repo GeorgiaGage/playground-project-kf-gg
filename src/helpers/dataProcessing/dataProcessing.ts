@@ -19,15 +19,13 @@ export function buildSiteOutages(
   const devices = siteInfo.devices;
   const deviceMap = createDeviceMap(devices);
   const siteOutages: SiteOutage[] = [];
-  const deviceIds = extractDeviceIds(devices);
 
   // Cycle through all the outages
   for (let i = 0; i < outages.length; i++) {
     // Find outages that began after 2022-01-01T00:00:00.000Z
     if (
-      //START HERE: something is going funny with the date here
       new Date(outages[i].begin) > cutOffTime &&
-      deviceIds.includes(outages[i].id)
+      extractDeviceIds(devices).includes(outages[i].id)
     ) {
       // Find the name of the device
       const siteOutage = {
@@ -47,6 +45,7 @@ export function buildSiteOutages(
  * @returns Device[]
  */
 export function extractDeviceIds(devices: Device[]): DeviceId[] {
+  console.log("DEVICES: ", devices);
   return devices.map((device) => {
     return device.id;
   });
