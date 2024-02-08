@@ -1,8 +1,8 @@
 import axios, { AxiosError } from "axios";
 
 export function axiosRetryCondition(error: AxiosError): boolean {
-  // Retry on timeout - should we have this?
-  // if (error.code === 'ECONNABORTED') return true;
+  // Retry on timeout - this is a questionable addition
+  if (error.code === 'ECONNABORTED') return true;
   switch (error.response?.status) {
     case 500:
     case 501:
@@ -25,13 +25,12 @@ export function axiosRetryCondition(error: AxiosError): boolean {
   }
 }
 
-export function handleRequestErrors(error: any): AxiosError | Error {
+export function handleRequestErrors(error: any) {
   // Catch other axios errors not caught by retry
   if (axios.isAxiosError(error)) {
-    console.log("Axios Error: ", error.response?.status);
-    throw error;
+    console.log(error.message);
   } else {
-    console.log("Error");
-    throw error;
+    const err = new Error(error);
+    console.log(err.message);
   }
 }

@@ -17,4 +17,10 @@ describe("axiosRetryCondition", () => {
     const result = axiosRetryCondition(error);
     expect(result).toEqual(expected);
   });
+
+  it("should return true if timeout exceeded", () => {
+    const error = { code: "ECONNABORTED" } as AxiosError;
+    const result = axiosRetryCondition(error);
+    expect(result).toBeTruthy();
+  });
 });

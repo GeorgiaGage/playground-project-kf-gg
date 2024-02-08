@@ -1,5 +1,6 @@
 import client from "./client";
 import Outage from "../types/Outage";
+import { handleRequestErrors } from "../helpers/errorHandling/errorHandling";
 
 
 
@@ -13,7 +14,7 @@ async function getOutages(): Promise<any> {
     // If the contract changes, this line will break
     return response.data as Outage[];
   } catch (error) {
-    console.log("Error: ");
+    handleRequestErrors(error);
   }
 }
 

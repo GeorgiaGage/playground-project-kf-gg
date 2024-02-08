@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import secrets from "./secrets";
 import axiosRetry from "axios-retry";
-import { axiosRetryCondition } from "./errorHandling";
+import { axiosRetryCondition } from "../helpers/errorHandling/errorHandling";
 
 const client = axios.create({
   baseURL: "https://api.krakenflex.systems/interview-tests-mock-api/v1",

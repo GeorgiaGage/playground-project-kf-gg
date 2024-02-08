@@ -1,4 +1,7 @@
-import { extractDeviceIds, filterOutages } from "./src/helpers/dataProcessing";
+import {
+  extractDeviceIds,
+  buildSiteOutages,
+} from "./src/helpers/dataProcessing/dataProcessing";
 import getOutages from "./src/requests/getOutages";
 import getSiteInfo from "./src/requests/getSiteInfo";
 
@@ -11,20 +14,19 @@ async function main(): Promise<void> {
     ]);
 
     //Extract device IDs
-    const deviceIds = extractDeviceIds(siteInfo);
+    // const deviceIds = extractDeviceIds(siteInfo);
 
     //Filter outages for ID and time
     const cutOffTime = new Date("2022-01-01T00:00:00.000Z");
-    const filteredOutages = filterOutages(deviceIds, outages, cutOffTime);
+    const filteredOutages = buildSiteOutages(siteInfo, outages, cutOffTime);
 
     console.log("result: ", filteredOutages);
 
-    //Extra shit:
-    //Handle time outs
-    //Handle retries
-    //Efficiency - asynchronousity
-    //Make it resillient
-    //Conolse interactive?
+    //Extra stuff:
+    //Console interactive?
+    //Tidy
+    //Double or single quotes?
+    //import orders
   } catch (error) {
     console.log("Something went badly wrong, please try again later");
   }

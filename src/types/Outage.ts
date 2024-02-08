@@ -1,5 +1,7 @@
+import DeviceId from "./DeviceId";
+
 type Outage = {
-  id: string;
+  id: DeviceId;
   begin: string;
   end: string;
 };
