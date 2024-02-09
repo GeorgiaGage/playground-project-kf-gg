@@ -7,15 +7,7 @@ import {
   createDeviceMap,
 } from "./dataProcessing";
 
-describe("getDeviceIdList", () => {
-  it("should return a list of IDs from a list of SiteInfo", () => {
-    const result = extractDeviceIds(siteInfo.devices);
-    const expected = [siteInfo.devices[0].id, siteInfo.devices[1].id];
-    expect(result).toEqual(expected);
-  });
-});
-
-describe("getRecentOutages", () => {
+describe("buildSiteOutages", () => {
   const cutOffTime = new Date("2022-01-01T00:00:00.000Z");
 
   it("should return a correct list of site outages filtered for time and device id", () => {
@@ -32,6 +24,14 @@ describe("getRecentOutages", () => {
     const earlyCutOffTime = new Date("2026-07-11T00:00:00.000Z");
     const result = buildSiteOutages(siteInfo, outages, earlyCutOffTime);
     expect(result).toEqual([]);
+  });
+});
+
+describe("extractDeviceIds", () => {
+  it("should return a list of IDs from a list of SiteInfo", () => {
+    const result = extractDeviceIds(siteInfo.devices);
+    const expected = [siteInfo.devices[0].id, siteInfo.devices[1].id];
+    expect(result).toEqual(expected);
   });
 });
 

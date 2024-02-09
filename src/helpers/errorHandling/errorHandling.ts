@@ -31,8 +31,8 @@ export function axiosRetryCondition(error: AxiosError): boolean {
 export function buildError(error: any): Error {
   // Catch axios errors not handled by retry
   if (axios.isAxiosError(error)) {
-    return new Error(error.response?.data.message);
+    return new Error(error.response?.data.message || error.message);
   } else {
-    return new Error(error);
+    return error;
   }
 }
