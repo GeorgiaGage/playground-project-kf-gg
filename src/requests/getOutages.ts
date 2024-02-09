@@ -6,7 +6,6 @@ async function getOutages(): Promise<Outage[]> {
   console.log("Fetching outages...");
   try {
     const response = await client.get("/outages");
-    // If the contract changes, this line will break
     return response.data as Outage[];
   } catch (error) {
     throw buildError(error);
