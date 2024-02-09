@@ -1,4 +1,4 @@
-import client from "./client";
+import client from "./axiosClient";
 import Outage from "../types/Outage";
 import { buildError } from "../helpers/errorHandling/errorHandling";
 

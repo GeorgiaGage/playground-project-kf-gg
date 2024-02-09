@@ -1,4 +1,4 @@
-import client from "./client";
+import client from "./axiosClient";
 import SiteInfo from "../types/SiteInfo";
 import { buildError } from "../helpers/errorHandling/errorHandling";
 

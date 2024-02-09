@@ -1,6 +1,6 @@
 import { buildError } from "../helpers/errorHandling/errorHandling";
 import SiteOutage from "../types/SiteOutage";
-import client from "./client";
+import client from "./axiosClient";
 
 // This endpoint is broken I believe
 async function postSiteOutages(
