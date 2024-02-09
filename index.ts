@@ -8,6 +8,7 @@ import postSiteOutages from "./src/requests/postSiteOutages";
 async function main(): Promise<void> {
     const siteId = "norwich-pear-tree";
 
+    // Fetch the outages and site information
     const [outages, siteInfo] = await Promise.all([
       getOutages(),
       getSiteInfo(siteId),
@@ -17,6 +18,7 @@ async function main(): Promise<void> {
     const cutOffTime = new Date("2022-01-01T00:00:00.000Z");
     const siteOutages = buildSiteOutages(siteInfo, outages, cutOffTime);
 
+    // Post the site outages
     console.log("Result to post:\n", siteOutages);
     postSiteOutages(siteOutages, siteId);
 }
