@@ -19,12 +19,6 @@ async function main(): Promise<void> {
 
     console.log("Result to post:\n", siteOutages);
     postSiteOutages(siteOutages, siteId);
-
-    //Extra stuff:
-    //Console interactive?
-    // Condense test data into one file?
-    // Store api key somewhere safe
-    // Read me
 }
 
 main();
