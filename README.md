@@ -32,13 +32,7 @@ Run
 npm test
 ```
 
-to run the tests and
-
-```bash
-npm test -c
-```
-
-to run the tests with a coverage report.
+to run the tests.
 
 ## The Application
 This application uses Axios to create a client that makes requests to the KrakenFlex Interview restful API. The three requests are each wrapped in a function:
