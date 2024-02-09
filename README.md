@@ -42,7 +42,7 @@ This application uses Axios to create a client that makes requests to the Kraken
 
 These can be found in the `requests/` directory along with the client construction. The library `axios-retry` is used to provide interceptors. These intercept the response and retry the request depending on the Http status code received. If any of the requests fail with a 4XX the application exists and an error message will be displayed in the terminal. Conditions for these retries can be found in `helper/errorHandling`. 
 
-Unfortunately I could not ge the POST request to accept my data. My unit tests pass with the example data given in the initial README (and included below) yet, upon posting to `/site-outages/{siteId}`, I receive a 400 and the message `Unexpected outages received`. I played around in Swagger but again, couldn't make it work. So I'm forced to accept that I have either miss-understood the instructions or the API. At least my error handling works. 
+Unfortunately I could not get the POST request to accept my data. My unit tests pass with the example data given in the initial README (and included below) yet, upon posting to `/site-outages/{siteId}`, I receive a 400 and the message `Unexpected outages received`. I played around in Swagger but again, couldn't make it work. So I'm forced to accept that I have either miss-understood the instructions or the API. At least my error handling works. 
 
 # Initial README
 ## The Task
@@ -160,7 +160,7 @@ We would like you to produce:
 - A suite of appropriate unit tests
 - A `README.md` file that documents what you have produced and explains how to run the program and tests (including installing any dependencies)
 
-- Once you have a complete solution, please commit into a git repo that can be accessed by Kraken Flex. Email your recruitment contact with a link to this repository so that your suubmission can be reviewed.
+- Once you have a complete solution, please commit into a git repo that can be accessed by Kraken Flex. Email your recruitment contact with a link to this repository so that your submission can be reviewed.
 
 Thank you.
 
