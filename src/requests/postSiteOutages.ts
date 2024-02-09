@@ -1,4 +1,4 @@
-import { handleRequestErrors } from "../helpers/errorHandling/errorHandling";
+import { buildError } from "../helpers/errorHandling/errorHandling";
 import SiteOutage from "../types/SiteOutage";
 import client from "./client";
 
@@ -13,9 +13,9 @@ async function postSiteOutages(
       `/site-outages/${siteId}`,
       JSON.stringify(siteOutages)
     );
-    console.log(response.data);
+    console.log("Response: ", response.data);
   } catch (error) {
-    handleRequestErrors(error);
+    throw buildError(error);
   }
 }
 

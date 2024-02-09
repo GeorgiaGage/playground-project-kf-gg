@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 
 export function axiosRetryCondition(error: AxiosError): boolean {
-  // Retry on timeout - this is a questionable addition
+  // Retry on timeout because sometimes is slow on first run
   if (error.code === "ECONNABORTED") return true;
   switch (error.response?.status) {
     case 500:
@@ -28,12 +28,11 @@ export function axiosRetryCondition(error: AxiosError): boolean {
   }
 }
 
-export function handleRequestErrors(error: any) {
-  // Catch other axios errors not caught by retry
+export function buildError(error: any): Error {
+  // Catch axios errors not handled by retry
   if (axios.isAxiosError(error)) {
-    console.log(error.response?.data);
+    return new Error(error.response?.data.message);
   } else {
-    const err = new Error(error);
-    console.log(err.message);
+    return new Error(error);
   }
 }

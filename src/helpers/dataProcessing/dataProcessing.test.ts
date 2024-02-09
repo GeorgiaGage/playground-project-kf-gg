@@ -1,7 +1,11 @@
 import { outages } from "../../test-data/outages";
 import { siteInfo, siteInfo_noMatch } from "../../test-data/siteInfo";
 import { siteOutages } from "../../test-data/siteOutages";
-import { extractDeviceIds, buildSiteOutages, createDeviceMap } from "./dataProcessing";
+import {
+  extractDeviceIds,
+  buildSiteOutages,
+  createDeviceMap,
+} from "./dataProcessing";
 
 describe("getDeviceIdList", () => {
   it("should return a list of IDs from a list of SiteInfo", () => {
@@ -12,7 +16,7 @@ describe("getDeviceIdList", () => {
 });
 
 describe("getRecentOutages", () => {
-  const cutOffTime = new Date("2022-07-11T00:00:00.000Z");
+  const cutOffTime = new Date("2022-01-01T00:00:00.000Z");
 
   it("should return a correct list of site outages filtered for time and device id", () => {
     const result = buildSiteOutages(siteInfo, outages, cutOffTime);
@@ -37,5 +41,5 @@ describe("createDeviceMap", () => {
     const result = createDeviceMap(devices);
     expect(result.get(devices[0].id)).toEqual(devices[0].name);
     expect(result.get(devices[1].id)).toEqual(devices[1].name);
-  })
-})
+  });
+});

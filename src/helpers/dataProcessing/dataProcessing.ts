@@ -45,7 +45,6 @@ export function buildSiteOutages(
  * @returns Device[]
  */
 export function extractDeviceIds(devices: Device[]): DeviceId[] {
-  console.log("DEVICES: ", devices);
   return devices.map((device) => {
     return device.id;
   });
