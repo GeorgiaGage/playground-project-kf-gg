@@ -9,11 +9,7 @@ async function postSiteOutages(
 ): Promise<any> {
   console.log("Posting site outages...");
   try {
-    const response = await client.post(
-      `/site-outages/${siteId}`,
-      JSON.stringify(siteOutages)
-    );
-    console.log("Response: ", response.data);
+    await client.post(`/site-outages/${siteId}`, siteOutages);
   } catch (error) {
     throw buildError(error);
   }

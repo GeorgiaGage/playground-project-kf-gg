@@ -21,6 +21,8 @@ async function main(): Promise<void> {
     // Post the site outages
     console.log("Result to post:\n", siteOutages);
     postSiteOutages(siteOutages, siteId);
+
+    console.log("Done 🐙");
 }
 
 main();
