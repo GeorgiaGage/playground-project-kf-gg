@@ -24,10 +24,10 @@ export function buildSiteOutages(
   for (let i = 0; i < outages.length; i++) {
     // Find outages that began after 2022-01-01T00:00:00.000Z
     if (
-      new Date(outages[i].begin) > cutOffTime &&
+      new Date(outages[i].begin) >= cutOffTime &&
       extractDeviceIds(devices).includes(outages[i].id)
     ) {
-      // Find the name of the device
+      // Find the name of the device and attach it to the site outage
       const siteOutage = {
         name: deviceMap.get(outages[i].id),
         ...outages[i],
