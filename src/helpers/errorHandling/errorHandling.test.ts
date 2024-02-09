@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse, HttpStatusCode } from "axios";
+import { AxiosError, AxiosResponse, HttpStatusCode } from "axios";
 import { axiosRetryCondition, buildError } from "./errorHandling";
 
 describe("axiosRetryCondition", () => {

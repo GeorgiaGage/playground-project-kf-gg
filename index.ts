@@ -22,9 +22,6 @@ async function main(): Promise<void> {
 
     //Extra stuff:
     //Console interactive?
-    //Tidy
-    //Double or single quotes?
-    //import orders
     // Condense test data into one file?
     // Store api key somewhere safe
     // Read me

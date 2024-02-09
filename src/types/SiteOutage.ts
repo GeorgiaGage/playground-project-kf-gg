@@ -1,5 +1,4 @@
 import DeviceId from "./DeviceId";
-import Outage from "./Outage";
 
 type SiteOutage = {
   name: string;

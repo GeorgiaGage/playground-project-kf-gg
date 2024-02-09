@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test -c": "jest --coverage",
     "start": "npx ts-node index.ts"
   },
   "keywords": [],

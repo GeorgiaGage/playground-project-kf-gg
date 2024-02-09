@@ -1,8 +1,56 @@
 # KrakenFlex Tech Test from Georgia Gage
 
 ## Tech
-This application uses TypeScript and Node JS.
 
+This application uses TypeScript and Node JS. Axios is used as an API client. Jest is used for testing.
+
+## Setup
+
+Run
+
+```bash
+npm install
+```
+
+to install the dependencies.
+
+## Start application
+
+Run
+
+```bash
+npm start
+```
+
+to start the application. All the application output will appear in the terminal.
+
+## Testing
+
+Run
+
+```bash
+npm test
+```
+
+to run the tests and
+
+```bash
+npm test -c
+```
+
+to run the tests with a coverage report.
+
+## The Application
+This application uses Axios to create a client that makes requests to the KrakenFlex Interview restful API. The three requests are each wrapped in a function:
+- `getOutages`
+- `getSiteInfo`
+- `postSiteOutages`
+
+These can be found in the `requests/` directory along with the client construction. The library `axios-retry` is used to provide interceptors. These intercept the response and retry the request depending on the Http status code received. If any of the requests fail with a 4XX the application exists and an error message will be displayed in the terminal. Conditions for these retries can be found in `helper/errorHandling`. 
+
+Unfortunately I could not ge the POST request to accept my data. My unit tests pass with the example data given in the initial README (and included below) yet, upon posting to `/site-outages/{siteId}`, I receive a 400 and the message `Unexpected outages received`. I played around in Swagger but again, couldn't make it work. So I'm forced to accept that I have either miss-understood the instructions or the API. At least my error handling works. 
+
+# Initial README
 ## The Task
 
 You should have been provided an API key and a Swagger specification defining endpoints in a file called `api.yaml`.
@@ -24,7 +72,6 @@ Your task is to write a small program that:
    devices in the site information
 4. For the remaining outages, it should attach the display name of the device in the site information to each appropriate outage
 5. Sends this list of outages to `POST /site-outages/{siteId}` for the site with the ID `norwich-pear-tree`
-
 
 ### Example
 
@@ -115,25 +162,25 @@ We should send the following to `POST /site-outages/kingfisher`:
 
 We would like you to produce:
 
-* A small program that solves the problem mentioned above
-* A suite of appropriate unit tests
-* A `README.md` file that documents what you have produced and explains how to run the program and tests (including installing any dependencies)
+- A small program that solves the problem mentioned above
+- A suite of appropriate unit tests
+- A `README.md` file that documents what you have produced and explains how to run the program and tests (including installing any dependencies)
 
-* Once you have a complete solution, please commit into a git repo that can be accessed by Kraken Flex. Email your recruitment contact with a link to this repository so that your suubmission can be reviewed. 
+- Once you have a complete solution, please commit into a git repo that can be accessed by Kraken Flex. Email your recruitment contact with a link to this repository so that your suubmission can be reviewed.
 
-Thank you. 
+Thank you.
 
 ### Bonus Requirements
 
-* The API will occasionally return 500 status codes. Can you implement a solution that is resilient to this scenario?
+- The API will occasionally return 500 status codes. Can you implement a solution that is resilient to this scenario?
 
 ### Tips and Things to Note
 
-* Make sure to include the provided API key in each request that you send. For example, run the following to test
+- Make sure to include the provided API key in each request that you send. For example, run the following to test
   this out:
   ```bash
   curl https://api.krakenflex.systems/interview-tests-mock-api/v1/outages -H "x-api-key: <API KEY>"
   ```
-* Each endpoint has the base path `https://api.krakenflex.systems/interview-tests-mock-api/v1/`.
-* If you are unsure of the schemas required, take a look at the `api.yaml` provided.
-* You will only get a 200 success response from `POST /site-outages/{siteId}` if the payload is correct.
+- Each endpoint has the base path `https://api.krakenflex.systems/interview-tests-mock-api/v1/`.
+- If you are unsure of the schemas required, take a look at the `api.yaml` provided.
+- You will only get a 200 success response from `POST /site-outages/{siteId}` if the payload is correct.
